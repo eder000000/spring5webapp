@@ -39,6 +39,10 @@ public class BootstrapData implements CommandLineRunner {
         rod.getBooks().add(noEJB);
         noEJB.getAuthors().add(rod);
 
+
+
+
+
         authorRepository.save(rod);
         bookRepository.save(noEJB);
 
@@ -49,5 +53,10 @@ public class BootstrapData implements CommandLineRunner {
         Publisher penguin = new Publisher("Penguin Rn House", "Address One Line 1", "Richardson", "Texas", "18365" );
         publisherRepository.save(penguin);
         System.out.println("Publisher Count: " + publisherRepository.count());
+
+        ddd.setPublisher(penguin);
+        penguin.getBooks().add(ddd);
+        publisherRepository.save(penguin);
+        System.out.println("Publisher number of books: " + penguin.getBooks().size());
     }
 }
